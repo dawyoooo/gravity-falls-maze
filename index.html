@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gravity Falls Directions & Spatial Prepositions Mystery - Year 4 English</title>
+  <style>
+    /* Gravity Falls Mystery & Journal Styling */
+    :root {
+      --gf-forest-green: #1b382b;
+      --gf-deep-wood: #2d1e18;
+      --gf-journal-gold: #d4af37;
+      --gf-pine-green: #3a5f43;
+      --gf-parchment: #f4e8c1;
+      --gf-bill-yellow: #f5d038;
+      --gf-mystery-red: #8b1e1e;
+      --gf-pine-blue: #2b5c8f;
+      --gf-card-bg: #fffbf0;
+      --text-dark: #1f1914;
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      user-select: none;
+    }
+
+    body {
+      background-color: var(--gf-forest-green);
+      color: var(--text-dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: url('my-background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    /* Header Bar / Mystery Shack Top Bar */
+    header {
+      background: var(--gf-deep-wood);
+      border-bottom: 4px solid var(--gf-journal-gold);
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      font-size: 1.2rem;
+      color: var(--gf-journal-gold);
+      letter-spacing: 1px;
+    }
+
+    .brand-logo svg {
+      width: 34px;
+      height: 34px;
+    }
+
+    nav {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-btn {
+      background: #1b120c;
+      color: var(--gf-parchment);
+      border: 2px solid var(--gf-journal-gold);
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: bold;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .nav-btn:hover, .nav-btn.active {
+      background: var(--gf-mystery-red);
+      color: white;
+      border-color: var(--gf-bill-yellow);
+      transform: translateY(-2px);
+    }
+
+    .avatar-pill {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--gf-journal-gold);
+      border: 3px solid white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      transition: transform 0.2s;
+    }
+
+    .avatar-pill:hover {
+      transform: scale(1.1);
+    }
+
+    /* App Container */
+    main {
+      flex: 1;
+      max-width: 1020px;
+      width: 95%;
+      margin: 16px auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Views Framework */
+    .view-card {
+      display: none;
+      background: var(--gf-parchment);
+      border: 4px solid var(--gf-deep-wood);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 0px rgba(0,0,0,0.5), 0 12px 24px rgba(0,0,0,0.4);
+      animation: popIn 0.3s ease;
+    }
+
+    .view-card.active-view {
+      display: block;
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Section Titles */
+    .mario-heading {
+      text-align: center;
+      margin-bottom: 20px;
+      border-bottom: 4px stroke var(--gf-journal-gold);
+    }
+
+    .mario-heading h2 {
+      font-size: 1.8rem;
+      color: var(--gf-mystery-red);
+      text-transform: uppercase;
+      text-shadow: 1px 1px 0px #000;
+      letter-spacing: 1px;
+    }
+
+    .mario-heading p {
+      color: #4a3b32;
+      font-size: 0.95rem;
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    /* Home Hub Screen */
+    .hero-banner {
+      background: linear-gradient(135deg, var(--gf-mystery-red), var(--gf-deep-wood));
+      color: var(--gf-parchment);
+      border-radius: 16px;
+      padding: 30px 20px;
+      text-align: center;
+      border: 4px solid var(--gf-journal-gold);
+      box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-banner h1 {
+      font-size: 2.2rem;
+      text-shadow: 3px 3px 0px #000;
+      color: var(--gf-bill-yellow);
+      margin-bottom: 8px;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      font-weight: 600;
+      text-shadow: 1px 1px 0 #000;
+    }
+
+    .avatar-trigger-btn {
+      margin-top: 16px;
+      background: var(--gf-journal-gold);
+      color: #000;
+      border: 3px solid #000;
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-weight: 900;
+      font-size: 1rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 0 #000;
+      transition: all 0.15s;
+    }
+
+    .avatar-trigger-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 #000;
+    }
+
+    .hub-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .question-block-card {
+      background: #e6d3a3;
+      border: 4px solid var(--gf-deep-wood);
+      border-radius: 12px;
+      padding: 20px 14px;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 6px 0 var(--gf-deep-wood);
+      transition: transform 0.15s, background-color 0.15s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .question-block-card:hover {
+      transform: translateY(-5px);
+      background: var(--gf-bill-yellow);
+      box-shadow: 0 10px 0 var(--gf-deep-wood);
+    }
+
+    .block-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--gf-parchment);
+      border: 3px solid var(--gf-deep-wood);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+    }
+
+    .question-block-card h3 {
+      font-size: 1.1rem;
+      color: #000;
+      font-weight: 800;
+    }
+
+    /* Modal Styling */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--gf-parchment);
+      border: 5px solid var(--gf-deep-wood);
+      border-radius: 16px;
+      padding: 24px;
+      width: 90%;
+      max-width: 480px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px; right: 14px;
+      font-size: 1.8rem; border: none; background: none; cursor: pointer; font-weight: bold;
+      color: var(--gf-mystery-red);
+    }
+
+    .avatar-preset-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .preset-avatar-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 4px solid var(--gf-deep-wood);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      overflow: hidden;
+      transition: all 0.2s;
+      background: var(--gf-card-bg);
+    }
+
+    .preset-avatar-circle.selected {
+      border-color: var(--gf-mystery-red);
+      transform: scale(1.15);
+      box-shadow: 0 0 10px var(--gf-bill-yellow);
+    }
+
+    .file-input-box {
+      border: 3px dashed var(--gf-deep-wood);
+      border-radius: 12px;
+      padding: 16px;
+      background: #eae0c0;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+
+    .file-input-box input { display: none; }
+
+    /* Flashcards View */
+    .flashcard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .mario-card {
+      background: var(--gf-card-bg);
+      border: 3px solid var(--gf-deep-wood);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 4px 0 var(--gf-deep-wood);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mario-card-gfx {
+      width: 100%;
+      height: 110px;
+      background: #e8ded0;
+      border: 2px solid var(--gf-deep-wood);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-sound {
+      background: var(--gf-pine-green);
+      color: white;
+      border: 2px solid var(--gf-deep-wood);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 3px 0 var(--gf-deep-wood);
+    }
+
+    .btn-sound:hover {
+      background: var(--gf-forest-green);
+    }
+
+    /* Map Drive & Maze Container */
+    .game-board-frame {
+      position: relative;
+      width: 100%;
+      max-width: 750px;
+      height: 400px;
+      background: var(--gf-pine-green);
+      border: 4px solid var(--gf-deep-wood);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 0 auto;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    .control-pad {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .pipe-btn {
+      background: var(--gf-pine-green);
+      color: white;
+      border: 3px solid var(--gf-deep-wood);
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 4px 0 var(--gf-deep-wood);
+      transition: all 0.1s;
+    }
+
+    .pipe-btn:hover {
+      background: var(--gf-forest-green);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 var(--gf-deep-wood);
+    }
+
+    /* Town Builder Activity */
+    .builder-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .clue-banner {
+      background: #e6dac0;
+      border: 3px solid var(--gf-deep-wood);
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      color: var(--gf-deep-wood);
+      width: 100%;
+      text-align: center;
+      font-size: 1.05rem;
+      box-shadow: 0 4px 0 rgba(0,0,0,0.1);
+    }
+
+    .building-palette {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      background: #d8cca8;
+      border: 3px solid var(--gf-deep-wood);
+      padding: 14px;
+      border-radius: 12px;
+      width: 100%;
+    }
+
+    .draggable-chip {
+      background: var(--gf-card-bg);
+      border: 3px solid var(--gf-deep-wood);
+      padding: 10px 18px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 0 var(--gf-deep-wood);
+      transition: transform 0.15s, background-color 0.15s;
+    }
+
+    .draggable-chip:hover {
+      background: var(--gf-bill-yellow);
+      transform: translateY(-2px);
+    }
+
+    .draggable-chip.selected {
+      background: var(--gf-mystery-red);
+      color: white;
+    }
+
+    .builder-grid-6 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      width: 100%;
+      max-width: 680px;
+    }
+
+    .slot-box {
+      height: 100px;
+      border: 3px dashed var(--gf-deep-wood);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #ede3ca;
+      font-weight: bold;
+      font-size: 0.9rem;
+      color: #555;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .slot-box:hover {
+      border-color: var(--gf-mystery-red);
+      background: #fbf6e8;
+    }
+
+    .slot-box.placed {
+      border: 3px solid var(--gf-deep-wood);
+      background: #c3e2c2;
+      color: #1a431e;
+      box-shadow: 0 4px 0 var(--gf-deep-wood);
+    }
+
+    /* Quiz Styling */
+    .quiz-card-box {
+      background: var(--gf-card-bg);
+      border: 3px solid var(--gf-deep-wood);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 0 var(--gf-deep-wood);
+    }
+
+    .quiz-question-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .quiz-opts {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .quiz-opt-btn {
+      background: white;
+      border: 2px solid var(--gf-deep-wood);
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .quiz-opt-btn:hover {
+      background: #fceea7;
+    }
+
+    .quiz-opt-btn.correct {
+      background: #bce3c5;
+      border-color: #1b4e23;
+      color: #0f3615;
+    }
+
+    .quiz-opt-btn.wrong {
+      background: #f7c1c1;
+      border-color: #8a1919;
+      color: #590d0d;
+    }
+
+    .explanation-tag {
+      margin-top: 10px;
+      padding: 10px;
+      background: #e2eaf4;
+      border-left: 4px solid var(--gf-pine-blue);
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #1a3c61;
+      display: none;
+    }
+
+    .score-banner {
+      background: var(--gf-journal-gold);
+      border: 4px solid var(--gf-deep-wood);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #000;
+      margin-top: 20px;
+      box-shadow: 0 4px 0 var(--gf-deep-wood);
+    }
+
+    /* Corner Side Character Styling */
+    .side-character-container {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      z-index: 1500;
+      pointer-events: none;
+    }
+
+    .speech-bubble {
+      background: var(--gf-parchment);
+      border: 3px solid var(--gf-deep-wood);
+      border-radius: 12px;
+      padding: 10px 14px;
+      max-width: 200px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      color: var(--text-dark);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      position: relative;
+      pointer-events: auto;
+      animation: popIn 0.3s ease;
+    }
+
+    .speech-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: 12px;
+      right: -10px;
+      border-width: 6px 0 6px 10px;
+      border-style: solid;
+      border-color: transparent transparent transparent var(--gf-deep-wood);
+    }
+
+    .side-character-avatar {
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      border: 4px solid var(--gf-journal-gold);
+      background: var(--gf-card-bg);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.5);
+      cursor: pointer;
+      pointer-events: auto;
+      object-fit: cover;
+      transition: transform 0.2s ease;
+    }
+
+    .side-character-avatar:hover {
+      transform: scale(1.08) rotate(-3deg);
+    }
+
+    footer {
+      text-align: center;
+      padding: 16px;
+      color: var(--gf-parchment);
+      font-weight: bold;
+      font-size: 0.85rem;
+      text-shadow: 1px 1px 0 #000;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header Navigation Bar -->
+  <header>
+    <div class="brand-logo">
+      <!-- SVG Pine Tree Icon (Dipper's Hat) -->
+      <svg viewBox="0 0 32 32">
+        <path d="M16 2 L5 18 L10 18 L3 28 L29 28 L22 18 L27 18 Z" fill="#3a5f43" stroke="#d4af37" stroke-width="1.5"/>
+        <rect x="13" y="28" width="6" height="4" fill="#2d1e18"/>
+      </svg>
+      <span>GRAVITY FALLS MYSTERY ENGLISH</span>
+    </div>
+
+    <nav>
+      <button class="nav-btn active" onclick="switchView('home-view', this)">🏠 Shack</button>
+      <button class="nav-btn" onclick="switchView('flashcards-view', this)">📖 Journal</button>
+      <button class="nav-btn" onclick="switchView('map-view', this)">🗺️ Woods</button>
+      <button class="nav-btn" onclick="switchView('maze-view', this)">👁️ Bill Maze</button>
+      <button class="nav-btn" onclick="switchView('builder-view', this)">🏗️ Shack Builder</button>
+      <button class="nav-btn" onclick="switchView('quiz-view', this)">✏️ Mystery Quiz</button>
+
+      <!-- Custom Avatar Selection Trigger -->
+      <div class="avatar-pill" onclick="openAvatarModal()" title="Change Gravity Falls Character">
+        <div id="headerAvatarDisplay" style="width:100%; height:100%;"></div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main View Container -->
+  <main>
+
+    <!-- SECTION 1: HOME HUB -->
+    <section id="home-view" class="view-card active-view">
+      <div class="hero-banner">
+        <h1>Gravity Falls Directions Mystery! 🌲</h1>
+        <p class="hero-subtitle">Year 4 English Courseware • Unit 6: Directions & Spatial Prepositions</p>
+        
+        <button class="avatar-trigger-btn" onclick="openAvatarModal()">
+          <span id="heroAvatarDisplay" style="width:32px; height:32px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; overflow:hidden;"></span>
+          <span>Choose Mystery Explorer!</span>
+        </button>
+      </div>
+
+      <div class="mario-heading">
+        <h2>Unravel Journal Secrets</h2>
+        <p>Click a mystery card to explore offline Gravity Falls tasks!</p>
+      </div>
+
+      <div class="hub-grid">
+        <div class="question-block-card" onclick="switchView('flashcards-view', document.querySelectorAll('nav .nav-btn')[1])">
+          <div class="block-icon">📖</div>
+          <h3>1. Journal Prepositions</h3>
+          <p style="font-size:0.8rem; color:#444;">Learn Directions</p>
+        </div>
+
+        <div class="question-block-card" onclick="switchView('map-view', document.querySelectorAll('nav .nav-btn')[2])">
+          <div class="block-icon">🗺️</div>
+          <h3>2. Woods Golf Cart</h3>
+          <p style="font-size:0.8rem; color:#444;">Drive Golf Cart</p>
+        </div>
+
+        <div class="question-block-card" onclick="switchView('maze-view', document.querySelectorAll('nav .nav-btn')[3])">
+          <div class="block-icon">👁️</div>
+          <h3>3. Cipher Maze</h3>
+          <p style="font-size:0.8rem; color:#444;">Escape Bill Cipher</p>
+        </div>
+
+        <div class="question-block-card" onclick="switchView('builder-view', document.querySelectorAll('nav .nav-btn')[4])">
+          <div class="block-icon">🏗️</div>
+          <h3>4. Town Builder</h3>
+          <p style="font-size:0.8rem; color:#444;">Layout Gravity Falls</p>
+        </div>
+
+        <div class="question-block-card" onclick="switchView('quiz-view', document.querySelectorAll('nav .nav-btn')[5])">
+          <div class="block-icon">✏️</div>
+          <h3>5. Journal Quiz</h3>
+          <p style="font-size:0.8rem; color:#444;">10 Mystery Questions</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: FLASHCARDS -->
+    <section id="flashcards-view" class="view-card">
+      <div class="mario-heading">
+        <h2>Journal #3 Spatial Prepositions</h2>
+        <p>Click the pine green audio button to hear Dipper's notes!</p>
+      </div>
+
+      <div class="flashcard-grid">
+        <div class="mario-card">
+          <div class="mario-card-gfx">
+            <svg width="100" height="70" viewBox="0 0 100 70">
+              <rect x="15" y="20" width="30" height="30" fill="#8b1e1e" rx="4"/>
+              <rect x="55" y="20" width="30" height="30" fill="#d4af37" rx="4"/>
+            </svg>
+          </div>
+          <h3>Next To</h3>
+          <p style="font-size:0.85rem; color:#666;">Beside or right by the side.</p>
+          <button class="btn-sound" onclick="speakText('Next to. The mystery journal is next to the gold key.')">🔊 Listen</button>
+        </div>
+
+        <div class="mario-card">
+          <div class="mario-card-gfx">
+            <svg width="100" height="70" viewBox="0 0 100 70">
+              <rect x="10" y="10" width="80" height="12" fill="#2d1e18" rx="2"/>
+              <rect x="20" y="35" width="25" height="25" fill="#3a5f43" rx="4"/>
+              <rect x="55" y="35" width="25" height="25" fill="#8b1e1e" rx="4"/>
+            </svg>
+          </div>
+          <h3>Opposite</h3>
+          <p style="font-size:0.85rem; color:#666;">Facing across a street or space.</p>
+          <button class="btn-sound" onclick="speakText('Opposite. The pine tree is opposite the red shack.')">🔊 Listen</button>
+        </div>
+
+        <div class="mario-card">
+          <div class="mario-card-gfx">
+            <svg width="100" height="70" viewBox="0 0 100 70">
+              <rect x="10" y="20" width="22" height="30" fill="#2d1e18" rx="3"/>
+              <rect x="39" y="20" width="22" height="30" fill="#f5d038" rx="3"/>
+              <rect x="68" y="20" width="22" height="30" fill="#2d1e18" rx="3"/>
+            </svg>
+          </div>
+          <h3>Between</h3>
+          <p style="font-size:0.85rem; color:#666;">In the middle of two objects.</p>
+          <button class="btn-sound" onclick="speakText('Between. Bill Cipher symbol is between two wooden posts.')">🔊 Listen</button>
+        </div>
+
+        <div class="mario-card">
+          <div class="mario-card-gfx">
+            <svg width="100" height="70" viewBox="0 0 100 70">
+              <path d="M65 55 V 30 Q 65 15 45 15 H 25" fill="none" stroke="#8b1e1e" stroke-width="6" stroke-linecap="round"/>
+              <path d="M32 5 L 15 15 L 32 25 Z" fill="#8b1e1e"/>
+            </svg>
+          </div>
+          <h3>Turn Left</h3>
+          <p style="font-size:0.85rem; color:#666;">Change path towards left side.</p>
+          <button class="btn-sound" onclick="speakText('Turn left. Head towards the Mystery Shack left entrance.')">🔊 Listen</button>
+        </div>
+
+        <div class="mario-card">
+          <div class="mario-card-gfx">
+            <svg width="100" height="70" viewBox="0 0 100 70">
+              <path d="M35 55 V 30 Q 35 15 55 15 H 75" fill="none" stroke="#3a5f43" stroke-width="6" stroke-linecap="round"/>
+              <path d="M68 5 L 85 15 L 68 25 Z" fill="#3a5f43"/>
+            </svg>
+          </div>
+          <h3>Turn Right</h3>
+          <p style="font-size:0.85rem; color:#666;">Change path towards right side.</p>
+          <button class="btn-sound" onclick="speakText('Turn right. Drive towards the Gravity Falls forest.')">🔊 Listen</button>
+        </div>
+
+        <div class="mario-card">
+          <div class="mario-card-gfx">
+            <svg width="100" height="70" viewBox="0 0 100 70">
+              <path d="M50 60 V 20" fill="none" stroke="#d4af37" stroke-width="6" stroke-linecap="round"/>
+              <path d="M38 25 L 50 10 L 62 25 Z" fill="#d4af37"/>
+            </svg>
+          </div>
+          <h3>Go Straight</h3>
+          <p style="font-size:0.85rem; color:#666;">Walk forward without turning.</p>
+          <button class="btn-sound" onclick="speakText('Go straight. Keep going along the forest path.')">🔊 Listen</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: MAP DRIVE -->
+    <section id="map-view" class="view-card">
+      <div class="mario-heading">
+        <h2>Gravity Falls Woods Golf Cart Drive 🗺️</h2>
+        <p>Follow Dipper's clues and steer the Mystery Shack Golf Cart through town!</p>
+      </div>
+
+      <div class="clue-banner" id="mapMissionBanner">
+        🎯 <b>Current Mission:</b> Drive Golf Cart from <b>MYSTERY SHACK</b> (Top-Left) to <b>GREASY'S DINER</b> (Bottom-Left)!
+      </div>
+
+      <!-- SCORE HUD -->
+      <div style="display:flex; justify-content:space-between; align-items:center; background:var(--gf-deep-wood); color:var(--gf-journal-gold); padding:8px 16px; border-radius:8px 8px 0 0; font-weight:900; font-size:1.1rem;">
+        <span>GRAVITY FALLS SCORE: <span id="mapScoreVal">0</span> PTS</span>
+        <span>JOURNAL PAGES: <span id="mapStarsVal">📖 0</span></span>
+      </div>
+
+      <div class="game-board-frame" style="height:420px; border-top-left-radius:0; border-top-right-radius:0;">
+        <svg width="100%" height="100%" viewBox="0 0 750 420">
+          <!-- Forest & Dirt Road Network -->
+          <rect width="750" height="420" fill="#2d4a34"/>
+          
+          <!-- Dirt Roads -->
+          <rect x="0" y="180" width="750" height="60" fill="#5c4335"/>
+          <line x1="0" y1="210" x2="750" y2="210" stroke="#d4af37" stroke-dasharray="16,12" stroke-width="4"/>
+
+          <rect x="180" y="0" width="60" height="420" fill="#5c4335"/>
+          <line x1="210" y1="0" x2="210" y2="420" stroke="#d4af37" stroke-dasharray="16,12" stroke-width="4"/>
+
+          <rect x="510" y="0" width="60" height="420" fill="#5c4335"/>
+          <line x1="540" y1="0" x2="540" y2="420" stroke="#d4af37" stroke-dasharray="16,12" stroke-width="4"/>
+
+          <!-- Intersections -->
+          <rect x="180" y="180" width="60" height="60" fill="#3b2b22"/>
+          <rect x="510" y="180" width="60" height="60" fill="#3b2b22"/>
+
+          <!-- Gravity Falls Locations -->
+          <g transform="translate(20, 20)">
+            <rect width="140" height="130" fill="#8b1e1e" rx="10" stroke="#2d1e18" stroke-width="4"/>
+            <text x="70" y="55" fill="white" font-weight="900" font-size="14" text-anchor="middle">🏚️ MYSTERY SHACK</text>
+            <text x="70" y="85" fill="#f5d038" font-weight="bold" font-size="11" text-anchor="middle">Main Forest Rd</text>
+          </g>
+
+          <g transform="translate(260, 20)">
+            <rect width="230" height="130" fill="#b08b35" rx="10" stroke="#2d1e18" stroke-width="4"/>
+            <text x="115" y="55" fill="#000" font-weight="900" font-size="15" text-anchor="middle">🌲 DEEP WOODS</text>
+            <text x="115" y="85" fill="#2d1e18" font-weight="bold" font-size="11" text-anchor="middle">Between Shack & Arcade</text>
+          </g>
+
+          <g transform="translate(590, 20)">
+            <rect width="140" height="130" fill="#2b5c8f" rx="10" stroke="#2d1e18" stroke-width="4"/>
+            <text x="70" y="55" fill="white" font-weight="900" font-size="14" text-anchor="middle">🕹️ ARCADE</text>
+            <text x="70" y="85" fill="#dbeafe" font-weight="bold" font-size="11" text-anchor="middle">East Corner</text>
+          </g>
+
+          <g transform="translate(20, 260)">
+            <rect width="140" height="130" fill="#d97706" rx="10" stroke="#2d1e18" stroke-width="4"/>
+            <text x="70" y="55" fill="white" font-weight="900" font-size="14" text-anchor="middle">🍳 GREASY DINER</text>
+            <text x="70" y="85" fill="#ffedd5" font-weight="bold" font-size="11" text-anchor="middle">Opposite Shack</text>
+          </g>
+
+          <g transform="translate(260, 260)">
+            <rect width="230" height="130" fill="#1b382b" rx="10" stroke="#2d1e18" stroke-width="4"/>
+            <text x="115" y="55" fill="white" font-weight="900" font-size="14" text-anchor="middle">⛺ GNOME FOREST</text>
+            <text x="115" y="85" fill="#dcfce7" font-weight="bold" font-size="11" text-anchor="middle">Next to Diner</text>
+          </g>
+
+          <g transform="translate(590, 260)">
+            <rect width="140" height="130" fill="#6b21a8" rx="10" stroke="#2d1e18" stroke-width="4"/>
+            <text x="70" y="55" fill="white" font-weight="900" font-size="14" text-anchor="middle">🏛️ MUSEUM</text>
+            <text x="70" y="85" fill="#f3e8ff" font-weight="bold" font-size="11" text-anchor="middle">Opposite Arcade</text>
+          </g>
+
+          <!-- Dynamic Player Avatar Group -->
+          <g id="mapMarioGroup" transform="translate(190, 190)" style="transition: transform 0.4s ease-out;">
+            <circle cx="20" cy="20" r="22" fill="#d4af37" stroke="#000" stroke-width="3"/>
+            <foreignObject x="2" y="2" width="36" height="36">
+              <div class="marioAvatarContent" style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:24px; border-radius:50%; overflow:hidden;">🌲</div>
+            </foreignObject>
+          </g>
+        </svg>
+      </div>
+
+      <div class="clue-banner" id="mapStatusText" style="margin-top:14px; background:#e6dac0;">
+        Golf Cart is positioned at West Intersection (X: 190, Y: 190).
+      </div>
+
+      <div class="control-pad">
+        <button class="pipe-btn" onclick="steerMario('up')">⬆️ Drive Up</button>
+        <button class="pipe-btn" onclick="steerMario('down')">⬇️ Drive Down</button>
+        <button class="pipe-btn" onclick="steerMario('left')">⬅️ Drive Left</button>
+        <button class="pipe-btn" onclick="steerMario('right')">➡️ Drive Right</button>
+        <button class="pipe-btn" style="background:var(--gf-mystery-red);" onclick="resetMarioDrive()">🔄 Reset Position</button>
+      </div>
+    </section>
+
+    <!-- SECTION 4: BILL CIPHER MAZE -->
+    <section id="maze-view" class="view-card">
+      <div class="mario-heading">
+        <h2>Bill Cipher Mindscape Maze 👁️</h2>
+        <p>Navigate Dipper through the mindscape to collect the 3 Journal pages!</p>
+      </div>
+
+      <div class="clue-banner" id="mazeClueText">
+        Loading maze instructions...
+      </div>
+
+      <!-- MAZE SCORE HUD -->
+      <div style="display:flex; justify-content:space-between; align-items:center; background:var(--gf-deep-wood); color:var(--gf-journal-gold); padding:8px 16px; border-radius:8px 8px 0 0; font-weight:900; font-size:1.1rem;">
+        <span>MAZE SCORE: <span id="mazeScoreVal">0</span> PTS</span>
+        <span>JOURNALS FOUND: <span id="mazeItemsVal">0 / 3</span></span>
+      </div>
+
+      <div class="game-board-frame" style="height:380px; border-top-left-radius:0; border-top-right-radius:0;">
+        <svg width="100%" height="100%" viewBox="0 0 750 380">
+          <rect width="750" height="380" fill="#1b120c"/>
+          
+          <!-- Maze Grid Path Lines -->
+          <g stroke="#3d281c" stroke-width="2">
+            <line x1="150" y1="0" x2="150" y2="380"/>
+            <line x1="300" y1="0" x2="300" y2="380"/>
+            <line x1="450" y1="0" x2="450" y2="380"/>
+            <line x1="600" y1="0" x2="600" y2="380"/>
+
+            <line x1="0" y1="95" x2="750" y2="95"/>
+            <line x1="0" y1="190" x2="750" y2="190"/>
+            <line x1="0" y1="285" x2="750" y2="285"/>
+          </g>
+
+          <!-- Wall Obstacles (Wood/Journal Brick Walls) -->
+          <g fill="#8b1e1e" stroke="#000" stroke-width="2">
+            <rect x="150" y="0" width="150" height="95" rx="4"/>
+            <rect x="450" y="95" width="150" height="95" rx="4"/>
+            <rect x="150" y="190" width="150" height="95" rx="4"/>
+            <rect x="450" y="285" width="150" height="95" rx="4"/>
+          </g>
+
+          <!-- Landmarks & Targets -->
+          <g transform="translate(20, 20)">
+            <rect width="110" height="55" fill="#3a5f43" rx="6" stroke="#000" stroke-width="2"/>
+            <text x="55" y="33" fill="white" font-weight="bold" font-size="12" text-anchor="middle">START 🌲</text>
+          </g>
+
+          <g transform="translate(620, 20)">
+            <rect width="110" height="55" fill="#d4af37" rx="6" stroke="#000" stroke-width="2"/>
+            <text x="55" y="33" fill="black" font-weight="bold" font-size="12" text-anchor="middle">PAGE 1 📖</text>
+          </g>
+
+          <g transform="translate(620, 210)">
+            <rect width="110" height="55" fill="#2b5c8f" rx="6" stroke="#000" stroke-width="2"/>
+            <text x="55" y="33" fill="white" font-weight="bold" font-size="12" text-anchor="middle">PAGE 2 📖</text>
+          </g>
+
+          <g transform="translate(20, 305)">
+            <rect width="110" height="55" fill="#f5d038" rx="6" stroke="#000" stroke-width="2"/>
+            <text x="55" y="33" fill="black" font-weight="bold" font-size="12" text-anchor="middle">CIPHER 👁️</text>
+          </g>
+
+          <!-- Player Avatar -->
+          <g id="mazePlayerGroup" transform="translate(55, 27)" style="transition: transform 0.35s ease;">
+            <circle cx="20" cy="20" r="22" fill="#d4af37" stroke="#000" stroke-width="3"/>
+            <foreignObject x="2" y="2" width="36" height="36">
+              <div class="marioAvatarContent" style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:22px; border-radius:50%; overflow:hidden;">🌲</div>
+            </foreignObject>
+          </g>
+        </svg>
+      </div>
+
+      <div class="control-pad">
+        <button class="pipe-btn" onclick="moveMazeGrid('up')">⬆️ Step Up</button>
+        <button class="pipe-btn" onclick="moveMazeGrid('down')">⬇️ Step Down</button>
+        <button class="pipe-btn" onclick="moveMazeGrid('left')">⬅️ Step Left</button>
+        <button class="pipe-btn" onclick="moveMazeGrid('right')">➡️ Step Right</button>
+        <button class="pipe-btn" style="background:var(--gf-mystery-red);" onclick="resetMazeGame()">🔄 Reset Maze</button>
+      </div>
+    </section>
+
+    <!-- SECTION 5: TOWN BUILDER -->
+    <section id="builder-view" class="view-card">
+      <div class="mario-heading">
+        <h2>Spatial Shack Builder 🏗️</h2>
+        <p>Place Gravity Falls locations in their correct spatial spots!</p>
+      </div>
+
+      <div class="builder-layout">
+        <div class="clue-banner" id="builderClue">
+          Clue 1: Select and place **GREASY'S DINER** directly **NEXT TO** the Mystery Shack (Slot 1)!
+        </div>
+
+        <div class="building-palette" id="buildingPalette">
+          <div class="draggable-chip" onclick="selectBuilding('Diner', this)">🍳 Greasy Diner</div>
+          <div class="draggable-chip" onclick="selectBuilding('Arcade', this)">🕹️ Arcade</div>
+          <div class="draggable-chip" onclick="selectBuilding('Forest', this)">⛺ Gnome Forest</div>
+          <div class="draggable-chip" onclick="selectBuilding('Museum', this)">🏛️ Museum</div>
+          <div class="draggable-chip" onclick="selectBuilding('Woods', this)">🌲 Deep Woods</div>
+        </div>
+
+        <div class="builder-grid-6">
+          <div class="slot-box placed">
+            <span>🏚️ MYSTERY SHACK</span>
+            <small style="font-weight:normal; font-size:0.75rem;">(Fixed Anchor)</small>
+          </div>
+          <div class="slot-box" onclick="placeBuildingInSlot(1)" id="bSlot1">Slot 1<br><small>(Next to Shack)</small></div>
+          <div class="slot-box" onclick="placeBuildingInSlot(2)" id="bSlot2">Slot 2<br><small>(Opposite Shack)</small></div>
+          <div class="slot-box" onclick="placeBuildingInSlot(3)" id="bSlot3">Slot 3<br><small>(Between Slots 2 & 4)</small></div>
+          <div class="slot-box" onclick="placeBuildingInSlot(4)" id="bSlot4">Slot 4<br><small>(Next to Slot 3)</small></div>
+          <div class="slot-box" onclick="placeBuildingInSlot(5)" id="bSlot5">Slot 5<br><small>(Far East Slot)</small></div>
+        </div>
+
+        <button class="pipe-btn" style="background:var(--gf-mystery-red);" onclick="clearBuilderGrid()">🔄 Reset Town Grid</button>
+      </div>
+    </section>
+
+    <!-- SECTION 6: MYSTERY QUIZ (10 QUESTIONS) -->
+    <section id="quiz-view" class="view-card">
+      <div class="mario-heading">
+        <h2>Journal #3 Mystery Quiz ✏️</h2>
+        <p>10 Comprehensive Questions on Directions & Prepositions!</p>
+      </div>
+
+      <div id="quizStack"></div>
+
+      <div class="score-banner" id="quizScoreBanner">
+        Your Journal Score: 0 / 10
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CORNER SIDE CHARACTER & DIALOGUE BUBBLE -->
+  <div class="side-character-container">
+    <div class="speech-bubble" id="sideDialogueBox">
+      <span id="sideDialogueText">"Dude! Click me for mystery clues!"</span>
+    </div>
+    <img 
+      src="soos.jpg" 
+      alt="Soos" 
+      class="side-character-avatar" 
+      onclick="triggerSideDialogue()"
+      onerror="this.src='dipper.jpg'"
+    >
+  </div>
+
+  <!-- CHARACTER SELECTION MODAL -->
+  <div class="modal-backdrop" id="avatarModal">
+    <div class="modal-box">
+      <button class="close-btn" onclick="closeAvatarModal()">&times;</button>
+      <h2 style="color:var(--gf-mystery-red);">Choose Gravity Falls Hero! 🌲</h2>
+      <p style="color:#555; font-size:0.9rem; margin-top:4px;">Select a Gravity Falls character or upload custom picture!</p>
+
+      <div class="avatar-preset-row">
+        <div class="preset-avatar-circle selected" onclick="choosePreset('dipper', this)">
+          <img src="dipper.jpg" style="width:100%; height:100%; object-fit:cover; border-radius:50%;" alt="Dipper">
+        </div>
+        <div class="preset-avatar-circle" onclick="choosePreset('mabel', this)">
+          <img src="mabel.jpg" style="width:100%; height:100%; object-fit:cover; border-radius:50%;" alt="Mabel">
+        </div>
+        <div class="preset-avatar-circle" onclick="choosePreset('stan', this)">
+          <img src="stan.jpg" style="width:100%; height:100%; object-fit:cover; border-radius:50%;" alt="Stan">
+        </div>
+      </div>
+
+      <div class="file-input-box" onclick="document.getElementById('marioImgInput').click()">
+        📷 <b>Upload Custom Image File</b>
+        <p style="font-size:0.8rem; color:#666;">Click to select an image from your device</p>
+        <input type="file" id="marioImgInput" accept="image/*" onchange="uploadCustomAvatar(event)">
+      </div>
+
+      <button class="pipe-btn" style="margin-top:16px; width:100%;" onclick="closeAvatarModal()">Save & Explore!</button>
+    </div>
+  </div>
+
+  <footer>
+    Gravity Falls Directions & Spatial Prepositions Mystery • EDUP3133 Task 3 • 100% Offline Single File Web App
+  </footer>
+
+  <script>
+    /* Audio Synth Engine & Speech API */
+    let isSoundOn = true;
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    let synthCtx;
+
+    function initSynth() {
+      if (!synthCtx) synthCtx = new AudioContextClass();
+    }
+
+    function playMarioSound(soundType) {
+      if (!isSoundOn) return;
+      initSynth();
+
+      const osc = synthCtx.createOscillator();
+      const gain = synthCtx.createGain();
+      osc.connect(gain);
+      gain.connect(synthCtx.destination);
+
+      if (soundType === 'coin') {
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(880, synthCtx.currentTime);
+        osc.frequency.setValueAtTime(1174.66, synthCtx.currentTime + 0.08);
+        gain.gain.setValueAtTime(0.25, synthCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, synthCtx.currentTime + 0.3);
+        osc.start();
+        osc.stop(synthCtx.currentTime + 0.3);
+      } else if (soundType === 'correct') {
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(440, synthCtx.currentTime);
+        osc.frequency.setValueAtTime(554.37, synthCtx.currentTime + 0.1);
+        osc.frequency.setValueAtTime(659.25, synthCtx.currentTime + 0.2);
+        gain.gain.setValueAtTime(0.2, synthCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, synthCtx.currentTime + 0.45);
+        osc.start();
+        osc.stop(synthCtx.currentTime + 0.45);
+      } else if (soundType === 'wrong') {
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(200, synthCtx.currentTime);
+        osc.frequency.setValueAtTime(140, synthCtx.currentTime + 0.15);
+        gain.gain.setValueAtTime(0.2, synthCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, synthCtx.currentTime + 0.4);
+        osc.start();
+        osc.stop(synthCtx.currentTime + 0.4);
+      } else if (soundType === 'jump') {
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(220, synthCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(440, synthCtx.currentTime + 0.15);
+        gain.gain.setValueAtTime(0.15, synthCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, synthCtx.currentTime + 0.15);
+        osc.start();
+        osc.stop(synthCtx.currentTime + 0.15);
+      }
+    }
+
+    // Voice Configuration
+    function speakText(phrase) {
+      if (!isSoundOn) return;
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const msg = new SpeechSynthesisUtterance(phrase);
+        msg.pitch = 1.2;
+        msg.rate = 1.0;
+        window.speechSynthesis.speak(msg);
+      }
+    }
+
+    // Navigation View Switcher
+    function switchView(viewId, btnEl) {
+      playMarioSound('jump');
+      document.querySelectorAll('.view-card').forEach(v => v.classList.remove('active-view'));
+      const targetView = document.getElementById(viewId);
+      if (targetView) targetView.classList.add('active-view');
+
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+
+      if (viewId === 'maze-view') {
+        resetMazeGame();
+      }
+    }
+
+    /* Avatar Rendering Engine */
+    let currentAvatarType = 'preset';
+    let currentAvatarPreset = 'dipper'; // Default preset set to Dipper
+    let customAvatarDataUrl = '';
+
+    // Preset images mapping
+    const avatarSVGs = {
+      dipper: `<img src="dipper.jpg" style="width:100%; height:100%; object-fit:cover; border-radius:50%;" alt="Dipper">`,
+      mabel: `<img src="mabel.jpg" style="width:100%; height:100%; object-fit:cover; border-radius:50%;" alt="Mabel">`,
+      stan: `<img src="stan.jpg" style="width:100%; height:100%; object-fit:cover; border-radius:50%;" alt="Stan">`
+    };
+
+    function renderAllAvatars() {
+      const targets = document.querySelectorAll('#headerAvatarDisplay, #heroAvatarDisplay, .marioAvatarContent');
+      
+      targets.forEach(t => {
+        if (currentAvatarType === 'preset') {
+          t.innerHTML = avatarSVGs[currentAvatarPreset] || avatarSVGs.dipper;
+        } else if (customAvatarDataUrl) {
+          t.innerHTML = `<img src="${customAvatarDataUrl}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;" alt="Custom Character">`;
+        }
+      });
+    }
+
+    function choosePreset(presetName, el) {
+      currentAvatarType = 'preset';
+      currentAvatarPreset = presetName;
+      
+      document.querySelectorAll('.preset-avatar-circle').forEach(c => c.classList.remove('selected'));
+      if (el) el.classList.add('selected');
+      
+      renderAllAvatars();
+      playMarioSound('coin');
+    }
+
+    function openAvatarModal() {
+      playMarioSound('jump');
+      renderAllAvatars();
+      document.getElementById('avatarModal').classList.add('active');
+    }
+
+    function closeAvatarModal() {
+      playMarioSound('coin');
+      document.getElementById('avatarModal').classList.remove('active');
+    }
+
+    function uploadCustomAvatar(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          currentAvatarType = 'custom';
+          customAvatarDataUrl = evt.target.result;
+          renderAllAvatars();
+          playMarioSound('correct');
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    /* Corner Side Character Interactive Dialogues */
+    const sideDialogues = [
+      "Dude! Click me for mystery clues!",
+      "Did you check the journal cards in the Shack?",
+      "Remember: 'Next to' means right beside an object!",
+      "Drive carefully in the Woods Golf Cart, dude!",
+      "Stay sharp! Bill Cipher is lurking around!"
+    ];
+    let sideDialogueIdx = 0;
+
+    function triggerSideDialogue() {
+      playMarioSound('coin');
+      sideDialogueIdx = (sideDialogueIdx + 1) % sideDialogues.length;
+      const textElem = document.getElementById('sideDialogueText');
+      const bubbleElem = document.getElementById('sideDialogueBox');
+
+      bubbleElem.style.animation = 'none';
+      bubbleElem.offsetHeight; // Force DOM reflow
+      bubbleElem.style.animation = 'popIn 0.3s ease';
+
+      textElem.innerText = sideDialogues[sideDialogueIdx];
+      speakText(sideDialogues[sideDialogueIdx]);
+    }
+
+    /* Activity 2: Movement Golf Cart Drive */
+    let mapX = 190;
+    let mapY = 190;
+    let driveCount = 0;
+    let mapScore = 0;
+    let mapStars = 0;
+    let currentMapMission = 1;
+
+    const mapMissions = [
+      { id: 1, text: "Drive Golf Cart from <b>MYSTERY SHACK</b> (Top-Left) to <b>GREASY'S DINER</b> (Bottom-Left)!", targetCheck: (x, y) => x <= 100 && y >= 260, targetName: "GREASY'S DINER", nextText: "Drive from <b>GREASY'S DINER</b> to the <b>ARCADE</b> (Top-Right)!" },
+      { id: 2, text: "Drive Golf Cart from <b>GREASY'S DINER</b> to the <b>ARCADE</b> (Top-Right)!", targetCheck: (x, y) => x >= 550 && y <= 100, targetName: "ARCADE", nextText: "Drive to <b>GNOME FOREST</b> (Bottom-Center)!" },
+      { id: 3, text: "Drive Golf Cart to <b>GNOME FOREST</b> (Bottom-Center)!", targetCheck: (x, y) => x >= 250 && x <= 450 && y >= 260, targetName: "GNOME FOREST", nextText: "Drive to the <b>MUSEUM</b> (Bottom-Right)!" },
+      { id: 4, text: "Drive Golf Cart to the <b>MUSEUM</b> (Bottom-Right)!", targetCheck: (x, y) => x >= 550 && y >= 260, targetName: "MUSEUM", nextText: "All Gravity Falls missions completed! Feel free to drive around!" }
+    ];
+
+    function steerMario(dir) {
+      playMarioSound('jump');
+      const marioGroup = document.getElementById('mapMarioGroup');
+      const txt = document.getElementById('mapStatusText');
+
+      if (dir === 'up') mapY = Math.max(10, mapY - 50);
+      else if (dir === 'down') mapY = Math.min(370, mapY + 50);
+      else if (dir === 'left') mapX = Math.max(10, mapX - 50);
+      else if (dir === 'right') mapX = Math.min(690, mapX + 50);
+
+      driveCount++;
+      marioGroup.setAttribute('transform', `translate(${mapX}, ${mapY})`);
+      
+      let locationLabel = "On Woods Path";
+      if (mapX <= 100 && mapY <= 100) locationLabel = "Near Mystery Shack 🏚️";
+      else if (mapX >= 550 && mapY <= 100) locationLabel = "Near Arcade 🕹️";
+      else if (mapX <= 100 && mapY >= 260) locationLabel = "Near Greasy Diner 🍳";
+      else if (mapX >= 250 && mapX <= 450 && mapY >= 260) locationLabel = "Near Gnome Forest ⛺";
+      else if (mapX >= 550 && mapY >= 260) locationLabel = "Near Museum 🏛️";
+
+      const desc = `Explorer moved ${dir.toUpperCase()} to (${mapX}, ${mapY}) - Location: <b>${locationLabel}</b>. (Moves: ${driveCount})`;
+      txt.innerHTML = desc;
+
+      const activeMission = mapMissions.find(m => m.id === currentMapMission);
+      if (activeMission && activeMission.targetCheck(mapX, mapY)) {
+        playMarioSound('correct');
+        mapScore += 50;
+        mapStars++;
+        document.getElementById('mapScoreVal').innerText = mapScore;
+        document.getElementById('mapStarsVal').innerText = `📖 ${mapStars}`;
+        
+        currentMapMission++;
+        const nextMission = mapMissions.find(m => m.id === currentMapMission);
+        if (nextMission) {
+          document.getElementById('mapMissionBanner').innerHTML = `🎉 <b>REACHED ${activeMission.targetName}! (+50 PTS)</b><br>🎯 <b>Next Mission:</b> ${nextMission.text}`;
+          speakText(`Destination ${activeMission.targetName} reached! Plus 50 points. Next mission: ${nextMission.targetName}`);
+        } else {
+          document.getElementById('mapMissionBanner').innerHTML = `🏆 <b>ALL MISSIONS COMPLETED! TOTAL SCORE: ${mapScore} PTS! 📖📖📖</b>`;
+          speakText("Congratulations! All Gravity Falls missions completed!");
+        }
+      }
+    }
+
+    function resetMarioDrive() {
+      playMarioSound('jump');
+      mapX = 190;
+      mapY = 190;
+      driveCount = 0;
+      mapScore = 0;
+      mapStars = 0;
+      currentMapMission = 1;
+      document.getElementById('mapScoreVal').innerText = "0";
+      document.getElementById('mapStarsVal').innerText = "📖 0";
+      document.getElementById('mapMarioGroup').setAttribute('transform', 'translate(190, 190)');
+      document.getElementById('mapStatusText').innerHTML = "Golf Cart is positioned at West Intersection (X: 190, Y: 190).";
+      document.getElementById('mapMissionBanner').innerHTML = "🎯 <b>Current Mission:</b> " + mapMissions[0].text;
+    }
+
+    /* Activity 3: Grid-Based Star Maze Game */
+    let mazeGridPos = { col: 0, row: 0 };
+    let mazeStep = 0;
+    let mazeScore = 0;
+
+    const mazeGridClues = [
+      "Step 1: Move RIGHT to collect Journal Page 1 📖 at the Top-Right corner!",
+      "Step 2: Great! Now move DOWN to collect Journal Page 2 📖 at the East spot!",
+      "Step 3: Excellent! Now move LEFT & DOWN to confront BILL CIPHER 👁️ at bottom left!"
+    ];
+
+    const mazeWalls = [
+      { col: 1, row: 0 },
+      { col: 3, row: 1 },
+      { col: 1, row: 2 },
+      { col: 3, row: 3 }
+    ];
+
+    function resetMazeGame() {
+      mazeGridPos = { col: 0, row: 0 };
+      mazeStep = 0;
+      mazeScore = 0;
+      document.getElementById('mazeScoreVal').innerText = "0";
+      document.getElementById('mazeItemsVal').innerText = "0 / 3";
+      updateMazeRender();
+      document.getElementById('mazeClueText').innerHTML = "🎯 " + mazeGridClues[0];
+    }
+
+    function updateMazeRender() {
+      const playerGroup = document.getElementById('mazePlayerGroup');
+      if (playerGroup) {
+        const posX = 35 + (mazeGridPos.col * 150);
+        const posY = 27 + (mazeGridPos.row * 95);
+        playerGroup.setAttribute('transform', `translate(${posX}, ${posY})`);
+      }
+    }
+
+    function moveMazeGrid(dir) {
+      let nextCol = mazeGridPos.col;
+      let nextRow = mazeGridPos.row;
+
+      if (dir === 'up') nextRow--;
+      else if (dir === 'down') nextRow++;
+      else if (dir === 'left') nextCol--;
+      else if (dir === 'right') nextCol++;
+
+      if (nextCol < 0 || nextCol > 4 || nextRow < 0 || nextRow > 3) {
+        playMarioSound('wrong');
+        speakText("Out of bounds!");
+        return;
+      }
+
+      const isWall = mazeWalls.some(w => w.col === nextCol && w.row === nextRow);
+      if (isWall) {
+        playMarioSound('wrong');
+        speakText("Ouch! You hit a mysterious barrier!");
+        document.getElementById('mazeClueText').innerHTML = "⚠️ <b>Blocked!</b> There is a magical barrier. Try another direction!";
+        return;
+      }
+
+      playMarioSound('jump');
+      mazeGridPos.col = nextCol;
+      mazeGridPos.row = nextRow;
+      updateMazeRender();
+
+      if (mazeGridPos.col === 4 && mazeGridPos.row === 0 && mazeStep === 0) {
+        playMarioSound('correct');
+        mazeStep = 1;
+        mazeScore += 100;
+        document.getElementById('mazeScoreVal').innerText = mazeScore;
+        document.getElementById('mazeItemsVal').innerText = "1 / 3";
+        document.getElementById('mazeClueText').innerHTML = "✨ <b>PAGE 1 COLLECTED! (+100 PTS)</b> " + mazeGridClues[1];
+        speakText("Journal Page 1 Collected! Plus 100 points! " + mazeGridClues[1]);
+      } else if (mazeGridPos.col === 4 && mazeGridPos.row === 2 && mazeStep === 1) {
+        playMarioSound('correct');
+        mazeStep = 2;
+        mazeScore += 100;
+        document.getElementById('mazeScoreVal').innerText = mazeScore;
+        document.getElementById('mazeItemsVal').innerText = "2 / 3";
+        document.getElementById('mazeClueText').innerHTML = "✨ <b>PAGE 2 COLLECTED! (+100 PTS)</b> " + mazeGridClues[2];
+        speakText("Journal Page 2 Collected! Plus 100 points! " + mazeGridClues[2]);
+      } else if (mazeGridPos.col === 0 && mazeGridPos.row === 3 && mazeStep === 2) {
+        playMarioSound('correct');
+        mazeScore += 300;
+        document.getElementById('mazeScoreVal').innerText = mazeScore;
+        document.getElementById('mazeItemsVal').innerText = "3 / 3 👁️";
+        document.getElementById('mazeClueText').innerHTML = `🏆 <b>VICTORY!</b> You banished Bill Cipher! Total Score: ${mazeScore} PTS! 📖📖📖📖📖`;
+        speakText("Victory! You banished Bill Cipher!");
+      }
+    }
+
+    /* Activity 4: Town Builder Sequential Logic */
+    let selectedBuildingName = null;
+    let currentBuilderStep = 1;
+
+    const builderSteps = [
+      { step: 1, targetBuilding: "Diner", targetSlot: 1, prompt: "STEP 1: Select <b>GREASY'S DINER</b> and place it in <b>Slot 1</b> (NEXT TO Mystery Shack)!", speakPrompt: "Step 1: Select Greasy Diner and place it in Slot 1 next to the shack." },
+      { step: 2, targetBuilding: "Museum", targetSlot: 2, prompt: "STEP 2: Select the <b>MUSEUM</b> and place it in <b>Slot 2</b> (OPPOSITE Mystery Shack)!", speakPrompt: "Step 2: Select the Museum and place it in Slot 2 opposite the shack." },
+      { step: 3, targetBuilding: "Forest", targetSlot: 3, prompt: "STEP 3: Select <b>GNOME FOREST</b> and place it in <b>Slot 3</b> (BETWEEN Slots 2 and 4)!", speakPrompt: "Step 3: Select Gnome Forest and place it in Slot 3 between slots 2 and 4." },
+      { step: 4, targetBuilding: "Woods", targetSlot: 4, prompt: "STEP 4: Select <b>DEEP WOODS</b> and place it in <b>Slot 4</b> (NEXT TO Gnome Forest)!", speakPrompt: "Step 4: Select Deep Woods and place it in Slot 4 next to Gnome Forest." },
+      { step: 5, targetBuilding: "Arcade", targetSlot: 5, prompt: "STEP 5: Select the <b>ARCADE</b> and place it in <b>Slot 5</b> (OPPOSITE Deep Woods)!", speakPrompt: "Step 5: Select the Arcade and place it in Slot 5." }
+    ];
+
+    function selectBuilding(name, el) {
+      selectedBuildingName = name;
+      document.querySelectorAll('.draggable-chip').forEach(chip => chip.classList.remove('selected'));
+      if (el) el.classList.add('selected');
+      playMarioSound('coin');
+      
+      const currentConfig = builderSteps.find(s => s.step === currentBuilderStep);
+      const instructionText = currentConfig ? currentConfig.prompt : "";
+      document.getElementById('builderClue').innerHTML = `Selected: <b>${name}</b>.<br>${instructionText}`;
+    }
+
+    function placeBuildingInSlot(slotNum) {
+      if (!selectedBuildingName) {
+        alert("Please click a location chip above first!");
+        return;
+      }
+
+      const activeStep = builderSteps.find(s => s.step === currentBuilderStep);
+      
+      if (activeStep && slotNum === activeStep.targetSlot && selectedBuildingName === activeStep.targetBuilding) {
+        const slotBox = document.getElementById(`bSlot${slotNum}`);
+        slotBox.innerHTML = `<span>📍 ${selectedBuildingName.toUpperCase()}</span>`;
+        slotBox.classList.add('placed');
+        playMarioSound('correct');
+
+        currentBuilderStep++;
+        const nextStep = builderSteps.find(s => s.step === currentBuilderStep);
+
+        if (nextStep) {
+          document.getElementById('builderClue').innerHTML = `✨ <b>CORRECT PLACEMENT!</b><br>${nextStep.prompt}`;
+          speakText("Correct placement! " + nextStep.speakPrompt);
+        } else {
+          document.getElementById('builderClue').innerHTML = "🎉 <b>TOWN BUILD COMPLETE!</b> You correctly placed all Gravity Falls locations! 📖📖📖📖📖";
+          speakText("Congratulations! Gravity Falls town layout completed!");
+        }
+
+        selectedBuildingName = null;
+        document.querySelectorAll('.draggable-chip').forEach(chip => chip.classList.remove('selected'));
+      } else {
+        playMarioSound('wrong');
+        const hintText = activeStep ? activeStep.prompt : "Try again!";
+        document.getElementById('builderClue').innerHTML = `❌ <b>Incorrect Slot/Building!</b><br>${hintText}`;
+        speakText("Incorrect placement. Please follow Dipper's instruction.");
+      }
+    }
+
+    function clearBuilderGrid() {
+      const slotLabels = [
+        "Slot 1<br><small>(Next to Shack)</small>",
+        "Slot 2<br><small>(Opposite Shack)</small>",
+        "Slot 3<br><small>(Between Slots 2 & 4)</small>",
+        "Slot 4<br><small>(Next to Slot 3)</small>",
+        "Slot 5<br><small>(Far East Slot)</small>"
+      ];
+
+      for (let i = 1; i <= 5; i++) {
+        const s = document.getElementById(`bSlot${i}`);
+        s.innerHTML = slotLabels[i - 1];
+        s.classList.remove('placed');
+      }
+      selectedBuildingName = null;
+      currentBuilderStep = 1;
+      document.querySelectorAll('.draggable-chip').forEach(chip => chip.classList.remove('selected'));
+      document.getElementById('builderClue').innerHTML = builderSteps[0].prompt;
+      playMarioSound('jump');
+    }
+
+    /* Activity 5: 10-Question Quiz System */
+    const fullQuizList = [
+      {
+        q: "Q1. Look at the town map. Deep Woods is located ________ the Mystery Shack and the Arcade.",
+        svg: `<svg viewBox="0 0 400 90" width="100%" height="70" style="background:#1b120c; border-radius:8px;"><rect x="20" y="20" width="90" height="50" fill="#8b1e1e" rx="4"/><text x="65" y="50" fill="#fff" font-weight="bold" font-size="11" text-anchor="middle">Shack</text><rect x="155" y="20" width="90" height="50" fill="#d4af37" rx="4"/><text x="200" y="50" fill="#000" font-weight="bold" font-size="11" text-anchor="middle">Woods ❓</text><rect x="290" y="20" width="90" height="50" fill="#2b5c8f" rx="4"/><text x="335" y="50" fill="#fff" font-weight="bold" font-size="11" text-anchor="middle">Arcade</text></svg>`,
+        opts: ["between", "opposite", "turn left"],
+        ans: 0,
+        exp: "Explanation: 'Between' is used when a place is in the middle of two other places."
+      },
+      {
+        q: "Q2. When Dipper walks to Main Forest Road, he turns ________ to reach Greasy's Diner.",
+        svg: `<svg viewBox="0 0 400 90" width="100%" height="70" style="background:#1b120c; border-radius:8px;"><path d="M50 70 V 35 Q 50 20 70 20 H 150" stroke="#f5d038" stroke-width="6" fill="none"/><path d="M140 10 L 160 20 L 140 30 Z" fill="#f5d038"/><rect x="180" y="5" width="100" height="50" fill="#d97706" rx="4"/><text x="230" y="35" fill="#fff" font-weight="bold" font-size="11" text-anchor="middle">Diner 🍳</text></svg>`,
+        opts: ["opposite", "right", "between"],
+        ans: 1,
+        exp: "Explanation: 'Right' indicates changing direction towards your right-hand side."
+      },
+      {
+        q: "Q3. Greasy's Diner stands directly ________ the Mystery Shack across Main Road.",
+        svg: `<svg viewBox="0 0 400 90" width="100%" height="70" style="background:#1b120c; border-radius:8px;"><rect x="130" y="10" width="140" height="30" fill="#8b1e1e" rx="4"/><text x="200" y="30" fill="#fff" font-weight="bold" font-size="11" text-anchor="middle">Mystery Shack 🏚️</text><line x1="20" y1="45" x2="380" y2="45" stroke="#d4af37" stroke-dasharray="8,6" stroke-width="3"/><rect x="130" y="50" width="140" height="30" fill="#d97706" rx="4"/><text x="200" y="70" fill="#fff" font-weight="bold" font-size="11" text-anchor="middle">Greasy Diner 🍳</text></svg>`,
+        opts: ["opposite", "between", "under"],
+        ans: 0,
+        exp: "Explanation: 'Opposite' means facing directly across a road or path."
+      },
+      {
+        q: "Q4. Gnome Forest is situated right ________ Greasy's Diner.",
+        svg: `<svg viewBox="0 0 400 90" width="100%" height="70" style="background:#1b120c; border-radius:8px;"><rect x="60" y="20" width="130" height="50" fill="#d97706" rx="4"/><text x="125" y="50" fill="#fff" font-weight="bold" font-size="11" text-anchor="middle">Diner 🍳</text><rect x="210" y="20" width="130" height="50" fill="#1b382b" rx="4"/><text x="275" y="50" fill="#fff" font-weight="bold" font-size="11" text-anchor="middle">Gnome Forest ⛺</text></svg>`,
+        opts: ["next to", "between", "go straight"],
+        ans: 0,
+        exp: "Explanation: 'Next to' means right beside or by the side of another place."
+      },
+      {
+        q: "Q5. If you walk directly forward along the forest path without turning, you ________.",
+        svg: `<svg viewBox="0 0 400 90" width="100%" height="70" style="background:#1b120c; border-radius:8px;"><line x1="50" y1="45" x2="320" y2="45" stroke="#3a5f43" stroke-width="6"/><path d="M310 32 L 340 45 L 310 58 Z" fill="#3a5f43"/></svg>`,
+        opts: ["turn right", "go straight", "turn left"],
+        ans: 1,
+        exp: "Explanation: 'Go straight' means continuing forward in a direct line."
+      },
+      {
+        q: "Q6. Look at the map. The Gravity Falls Museum is located ________ the Arcade.",
+        svg: `<svg viewBox="0 0 400 90" width="100%" height="70" style="background:#1b120c; border-radius:8px;"><rect x="130" y="10" width="140" height="30" fill="#2b5c8f" rx="4"/><text x="200" y="30" fill="#fff" font-weight="bold" font-size="11" text-anchor="middle">Arcade 🕹️</text><line x1="20" y1="45" x2="380" y2="45" stroke="#d4af37" stroke-dasharray="8,6" stroke-width="3"/><rect x="130" y="50" width="140" height="30" fill="#6b21a8" rx="4"/><text x="200" y="70" fill="#fff" font-weight="bold" font-size="11" text-anchor="middle">Museum 🏛️</text></svg>`,
+        opts: ["opposite", "between", "turn left"],
+        ans: 0,
+        exp: "Explanation: 'Opposite' is correct because the Museum directly faces the Arcade."
+      },
+      {
+        q: "Q7. Mabel stands directly ________ the main entrance of the Mystery Shack.",
+        svg: `<svg viewBox="0 0 400 90" width="100%" height="70" style="background:#1b120c; border-radius:8px;"><rect x="110" y="10" width="180" height="40" fill="#8b1e1e" rx="4"/><text x="200" y="35" fill="#fff" font-weight="bold" font-size="11" text-anchor="middle">Mystery Shack Entrance 🏚️</text><circle cx="200" cy="70" r="14" fill="#e05297"/><text x="200" y="74" fill="#fff" font-weight="bold" font-size="11" text-anchor="middle">M</text></svg>`,
+        opts: ["in front of", "between", "behind"],
+        ans: 0,
+        exp: "Explanation: 'In front of' means positioned at the forward or entrance side of a place."
+      },
+      {
+        q: "Q8. To reach Gnome Forest from Greasy's Diner, Dipper must walk towards his ________.",
+        svg: `<svg viewBox="0 0 400 90" width="100%" height="70" style="background:#1b120c; border-radius:8px;"><rect x="40" y="20" width="110" height="50" fill="#d97706" rx="4"/><text x="95" y="50" fill="#fff" font-weight="bold" font-size="11" text-anchor="middle">Diner 🍳</text><path d="M165 45 H 230" stroke="#d4af37" stroke-width="6"/><path d="M220 35 L 245 45 L 220 55 Z" fill="#d4af37"/><rect x="255" y="20" width="110" height="50" fill="#1b382b" rx="4"/><text x="310" y="50" fill="#fff" font-weight="bold" font-size="11" text-anchor="middle">Gnome Forest ⛺</text></svg>`,
+        opts: ["left", "right", "backwards"],
+        ans: 1,
+        exp: "Explanation: Moving right takes Dipper from Greasy's Diner to Gnome Forest."
+      },
+      {
+        q: "Q9. Deep Woods sits on Main Road ________ Gnome Forest.",
+        svg: `<svg viewBox="0 0 400 90" width="100%" height="70" style="background:#1b120c; border-radius:8px;"><rect x="130" y="10" width="140" height="30" fill="#b08b35" rx="4"/><text x="200" y="30" fill="#000" font-weight="bold" font-size="11" text-anchor="middle">Deep Woods 🌲</text><line x1="20" y1="45" x2="380" y2="45" stroke="#d4af37" stroke-dasharray="8,6" stroke-width="3"/><rect x="130" y="50" width="140" height="30" fill="#1b382b" rx="4"/><text x="200" y="70" fill="#fff" font-weight="bold" font-size="11" text-anchor="middle">Gnome Forest ⛺</text></svg>`,
+        opts: ["opposite", "under", "between"],
+        ans: 0,
+        exp: "Explanation: 'Opposite' describes two places positioned across from each other."
+      },
+      {
+        q: "Q10. Spatial prepositions such as 'next to', 'between', and 'opposite' tell us ________.",
+        svg: `<svg viewBox="0 0 400 90" width="100%" height="70" style="background:#1b120c; border-radius:8px;"><text x="200" y="50" fill="#f5d038" font-weight="bold" font-size="13" text-anchor="middle">📍 WHERE A MYSTERY PLACE IS LOCATED</text></svg>`,
+        opts: ["where a place is located", "how fast a cart drives", "how to sing a song"],
+        ans: 0,
+        exp: "Explanation: Spatial prepositions provide exact positions and spatial directions."
+      }
+    ];
+
+    let totalScore = 0;
+
+    function buildQuizUI() {
+      const stack = document.getElementById('quizStack');
+      stack.innerHTML = '';
+
+      fullQuizList.forEach((item, index) => {
+        const qCard = document.createElement('div');
+        qCard.className = 'quiz-card-box';
+
+        const title = document.createElement('div');
+        title.className = 'quiz-question-title';
+        title.innerHTML = `<span>${item.q}</span>`;
+
+        const speakBtn = document.createElement('button');
+        speakBtn.className = 'btn-sound';
+        speakBtn.style.padding = '4px 10px';
+        speakBtn.style.fontSize = '0.75rem';
+        speakBtn.innerHTML = '🔊 Read';
+        speakBtn.onclick = () => speakText(item.q);
+        title.appendChild(speakBtn);
+
+        const svgBox = document.createElement('div');
+        svgBox.style.margin = '10px 0 14px 0';
+        svgBox.innerHTML = item.svg;
+
+        const optsBox = document.createElement('div');
+        optsBox.className = 'quiz-opts';
+
+        const expBox = document.createElement('div');
+        expBox.className = 'explanation-tag';
+        expBox.textContent = item.exp;
+
+        item.opts.forEach((optionText, optIndex) => {
+          const btn = document.createElement('button');
+          btn.className = 'quiz-opt-btn';
+          btn.innerHTML = `<b>${String.fromCharCode(65 + optIndex)}.</b> ${optionText}`;
+          btn.onclick = () => {
+            const allBtns = optsBox.querySelectorAll('.quiz-opt-btn');
+            allBtns.forEach(b => b.disabled = true);
+
+            if (optIndex === item.ans) {
+              btn.classList.add('correct');
+              btn.innerHTML += ' ✔';
+              playMarioSound('correct');
+              totalScore++;
+            } else {
+              btn.classList.add('wrong');
+              btn.innerHTML += ' ❌';
+              playMarioSound('wrong');
+              allBtns[item.ans].classList.add('correct');
+            }
+            expBox.style.display = 'block';
+            document.getElementById('quizScoreBanner').textContent = `Your Journal Score: ${totalScore} / ${fullQuizList.length}`;
+          };
+          optsBox.appendChild(btn);
+        });
+
+        qCard.appendChild(title);
+        qCard.appendChild(svgBox);
+        qCard.appendChild(optsBox);
+        qCard.appendChild(expBox);
+        stack.appendChild(qCard);
+      });
+    }
+
+    /* Initialize Application on Page Load */
+    document.addEventListener('DOMContentLoaded', function() {
+      buildQuizUI();
+      renderAllAvatars();
+    });
+
+    window.onload = function() {
+      renderAllAvatars();
+    };
+  </script>
+</body>
+</html>
